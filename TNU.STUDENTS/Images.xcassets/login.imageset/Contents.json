@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "iphone",
-      "filename" : "login-3.png",
+      "filename" : "login-4.png",
       "scale" : "1x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "login-2.png",
+      "filename" : "login-3.png",
       "scale" : "2x"
     },
     {
       "idiom" : "iphone",
-      "filename" : "login.png",
+      "filename" : "login-2.png",
       "scale" : "3x"
     }
   ],

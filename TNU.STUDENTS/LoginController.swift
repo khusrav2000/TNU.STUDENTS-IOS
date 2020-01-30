@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 extension UIViewController {
     
     func hideKeyboard() {
@@ -33,12 +34,15 @@ class LoginController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     
+    private let networkClient = NetworkingClient()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loginView.setGradientBakcground(colorStart: Colors.gradStart, colorCenter: Colors.gradCenter, colorEnd: Colors.gradEnd)
         
         let loginImage = UIImage(named: "login")
@@ -61,6 +65,11 @@ class LoginController: UIViewController {
         
         setLetterSpacing(text: universityName, value: 5.0)
         setLineSpacing(text: universityName, value: 8.0)
+        
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        if(token != ""){
+            login()
+        }
       
     }
     
@@ -106,7 +115,7 @@ class LoginController: UIViewController {
     func addBottomBorder(txtField: UITextField){
         
         let bottomLine = CALayer()
-        bottomLine.frame = CGRect(x: -5.0, y: txtField.frame.height , width: txtField.frame.width + 10, height: 2)
+        bottomLine.frame = CGRect(x: -5.0, y: txtField.frame.height - 1, width: txtField.frame.width + 10, height: 2)
         
         bottomLine.backgroundColor = Colors.lineColor.cgColor
         txtField.layer.addSublayer(bottomLine)
@@ -117,10 +126,61 @@ class LoginController: UIViewController {
     @IBAction func buttonAction(sender:UIButton!){
         let btnsendtag: UIButton = sender
         if btnsendtag.tag == 1 {
+            
+            login()
             print("qqq")
-            dismiss(animated: true, completion: nil)
-            performSegue(withIdentifier: "goMain", sender: self)
+        
         }
+    }
+    
+    func login(){
+        
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        print(token)
+        networkClient.auth(token: token, login: loginText.text!, password: passwordText.text! ){ (json, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let json = json {
+                
+                let token = json["message"] as! String
+                self.setToken(token: token)
+                self.loadProfileInformation()
+                
+            }
+        }
+    }
+    
+    func setToken(token: String){
+        
+        let defaults = UserDefaults.standard
+        defaults.set(token, forKey: "token")
+        print(token)
+        
+    }
+    
+    func loadProfileInformation(){
+        let token = UserDefaults.standard.string(forKey: "token")!
+        print(token)
+        
+        networkClient.getProfile(token: token) { (result, error) in
+            if let error = error{
+                print("ERROR!!")
+                print(error.localizedDescription)
+            } else if let studentInfo = result {
+                print("Omad!!")
+                print(studentInfo)
+                self.startMain()
+            }
+        }
+    }
+    
+    func loadSemesters(){
+        self.startMain()
+    }
+    
+    func startMain(){
+        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "goMain", sender: self)
     }
     
 }
