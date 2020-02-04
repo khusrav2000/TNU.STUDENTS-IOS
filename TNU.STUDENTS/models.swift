@@ -14,9 +14,9 @@ struct Message: Codable {
 
 struct StudentsInfo: Codable {
     var RecordBookNumber: String?
-    var FullName: Language
-    var Faculty: Language
-    var Specialty: Language
+    var FullName: Language?
+    var Faculty: Language?
+    var Specialty: Language?
     var CodeSpecialty: String?
     var Trainingform: String?
     var TrainingLevel: String?
@@ -24,9 +24,38 @@ struct StudentsInfo: Codable {
     var Group: String?
     var YearUniversityEntrance: String?
     var TrainingPeriod: Int8?
+    
 }
 
 struct Language: Codable {
     var TJ: String?
     var RU: String?
+}
+
+struct Semester: Codable{
+    var AcademicYear: String?
+    var ID: Int?
+    var isActive: Bool?
+    
+}
+
+struct Course: Codable {
+    var SubjectID: Int?
+    var SubjectName: Language?
+    var TeacherName: Language?
+    var FirstRatingWeeks: [WeekPoints]?
+    var FirstRatingPoint: Double?
+    var SecondRatingWeeks: [WeekPoints]?
+    var SecondRatingPoint: Double?
+    var ExamPoint: Double?
+    var TotalPoint: Double?
+    var Mark: String?
+
+}
+
+struct WeekPoints: Codable {
+    var WeekNumber: Int?
+    var Point: Double?
+    var MaxPoint: Double?
+    var IsCurrentWeek: Bool?
 }

@@ -9,8 +9,11 @@
 /* Begin PBXBuildFile section */
 		FA12AA3E23E2B851000E2639 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = FA12AA3D23E2B851000E2639 /* Alamofire */; };
 		FA12AA4023E2CBF2000E2639 /* models.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12AA3F23E2CBF2000E2639 /* models.swift */; };
+		FA12AA4223E46E1A000E2639 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12AA4123E46E1A000E2639 /* Constants.swift */; };
+		FA12AA4823E97812000E2639 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12AA4723E97812000E2639 /* TabBarController.swift */; };
+		FA12AA4A23E97E10000E2639 /* PointsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12AA4923E97E10000E2639 /* PointsController.swift */; };
+		FA12AA4C23E97E8B000E2639 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12AA4B23E97E8B000E2639 /* ProfileController.swift */; };
 		FA1FFF3323DEB8FB00A3CDDF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1FFF3223DEB8FB00A3CDDF /* Images.xcassets */; };
-		FA1FFF3523E18D0600A3CDDF /* UILabel+extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FFF3423E18D0600A3CDDF /* UILabel+extensions.swift */; };
 		FA1FFF3C23E1E30500A3CDDF /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FFF3B23E1E30500A3CDDF /* NetworkingClient.swift */; };
 		FA41D90D23DD923C00BBDCCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41D90C23DD923C00BBDCCA /* AppDelegate.swift */; };
 		FA41D90F23DD923C00BBDCCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41D90E23DD923C00BBDCCA /* SceneDelegate.swift */; };
@@ -26,8 +29,11 @@
 
 /* Begin PBXFileReference section */
 		FA12AA3F23E2CBF2000E2639 /* models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = models.swift; sourceTree = "<group>"; };
+		FA12AA4123E46E1A000E2639 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA12AA4723E97812000E2639 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		FA12AA4923E97E10000E2639 /* PointsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsController.swift; sourceTree = "<group>"; };
+		FA12AA4B23E97E8B000E2639 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		FA1FFF3223DEB8FB00A3CDDF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FA1FFF3423E18D0600A3CDDF /* UILabel+extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+extensions.swift"; sourceTree = "<group>"; };
 		FA1FFF3B23E1E30500A3CDDF /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		FA41D90923DD923C00BBDCCA /* TNU.STUDENTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TNU.STUDENTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA41D90C23DD923C00BBDCCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,9 +94,12 @@
 				FA41D92723DDA6DE00BBDCCA /* Colors.swift */,
 				FA41D92923DDA94100BBDCCA /* UIViewGradient.swift */,
 				FA1FFF3223DEB8FB00A3CDDF /* Images.xcassets */,
-				FA1FFF3423E18D0600A3CDDF /* UILabel+extensions.swift */,
 				FA1FFF3B23E1E30500A3CDDF /* NetworkingClient.swift */,
 				FA12AA3F23E2CBF2000E2639 /* models.swift */,
+				FA12AA4123E46E1A000E2639 /* Constants.swift */,
+				FA12AA4723E97812000E2639 /* TabBarController.swift */,
+				FA12AA4923E97E10000E2639 /* PointsController.swift */,
+				FA12AA4B23E97E8B000E2639 /* ProfileController.swift */,
 			);
 			path = TNU.STUDENTS;
 			sourceTree = "<group>";
@@ -187,12 +196,15 @@
 				FA1FFF3C23E1E30500A3CDDF /* NetworkingClient.swift in Sources */,
 				FA12AA4023E2CBF2000E2639 /* models.swift in Sources */,
 				FA41D92A23DDA94100BBDCCA /* UIViewGradient.swift in Sources */,
+				FA12AA4823E97812000E2639 /* TabBarController.swift in Sources */,
 				FA41D91723DD923C00BBDCCA /* TNU_STUDENTS.xcdatamodeld in Sources */,
 				FA41D92823DDA6DE00BBDCCA /* Colors.swift in Sources */,
+				FA12AA4A23E97E10000E2639 /* PointsController.swift in Sources */,
+				FA12AA4223E46E1A000E2639 /* Constants.swift in Sources */,
 				FA41D90D23DD923C00BBDCCA /* AppDelegate.swift in Sources */,
-				FA1FFF3523E18D0600A3CDDF /* UILabel+extensions.swift in Sources */,
 				FA41D90F23DD923C00BBDCCA /* SceneDelegate.swift in Sources */,
 				FA41D92623DD938600BBDCCA /* LoginController.swift in Sources */,
+				FA12AA4C23E97E8B000E2639 /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

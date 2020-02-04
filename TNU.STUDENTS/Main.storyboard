@@ -64,36 +64,134 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="HAO-Ah-SYO"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vLi-fe-dQP"/>
                     <connections>
                         <outlet property="loginButton" destination="CQm-dY-Caz" id="gPC-kU-ItQ"/>
                         <outlet property="loginText" destination="Wea-n1-HGi" id="iVK-Th-aIN"/>
                         <outlet property="loginView" destination="o99-sk-891" id="qQe-z4-wN9"/>
                         <outlet property="passwordText" destination="pak-Ut-ijQ" id="OPk-2d-m0S"/>
                         <outlet property="universityName" destination="zZr-hG-Ace" id="FYF-2k-Y0V"/>
-                        <segue destination="x1P-N7-mxd" kind="presentation" identifier="goMain" id="RQP-I7-kyp"/>
+                        <segue destination="cJn-6J-1ce" kind="show" identifier="goMain" id="THM-Xf-JXM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g3f-SQ-b8y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="92.410714285714278"/>
+            <point key="canvasLocation" x="-178" y="-1540"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="aeo-7i-krA">
+        <!--Профил-->
+        <scene sceneID="T6p-Md-MDm">
             <objects>
-                <viewController id="x1P-N7-mxd" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XdC-ZE-Ca4">
+                <viewController id="zS3-ud-SAN" customClass="ProfileController" customModule="TNU_STUDENTS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Idc-fB-X0w">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="46Y-8I-hl8">
+                                <rect key="frame" x="27" y="40" width="360" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TNU.STUDENT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0v-pY-kvf">
+                                        <rect key="frame" x="0.0" y="9" width="186" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3Y-VW-FiQ">
+                                        <rect key="frame" x="202" y="9" width="158" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="3" maxY="0.0"/>
+                                        <state key="normal" title="Баромад" image="logout">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="logout:" destination="zS3-ud-SAN" eventType="touchUpInside" id="sKG-oU-fqc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RlA-Lb-QcN">
+                                <rect key="frame" x="27" y="98" width="360" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="student_cap" translatesAutoresizingMaskIntoConstraints="NO" id="E7X-xj-prx">
+                                        <rect key="frame" x="16" y="1" width="118" height="160"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="full name" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWU-PR-tTS">
+                                        <rect key="frame" x="142" y="27" width="186" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WK5-cj-tVg">
+                                        <rect key="frame" x="142" y="88" width="186" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.13333333333333333" green="0.0" blue="0.19215686274509802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fB7-9U-56H"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Профил" image="ic_profile" id="IBN-uc-w3Q"/>
+                    <connections>
+                        <outlet property="fullName" destination="cWU-PR-tTS" id="tSy-O7-unf"/>
+                        <outlet property="generalInfomation" destination="RlA-Lb-QcN" id="Cak-CD-XDI"/>
+                        <outlet property="studentID" destination="WK5-cj-tVg" id="4s0-md-ctN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WMT-Qm-ug2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="840.57971014492762" y="-342.1875"/>
+        </scene>
+        <!--Холҳо-->
+        <scene sceneID="7Q8-es-FtO">
+            <objects>
+                <viewController id="Kzo-N8-mkQ" customClass="PointsController" customModule="TNU_STUDENTS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LMm-of-SLN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="jQJ-gk-xm4"/>
+                        <viewLayoutGuide key="safeArea" id="rPr-Os-BAo"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Холҳо" image="ic_points" id="bcC-Dn-vIN"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7jc-QV-5uS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jqU-zo-t67" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="64" y="738"/>
+            <point key="canvasLocation" x="843" y="-1200"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="m78-2b-qRJ">
+            <objects>
+                <tabBarController id="cJn-6J-1ce" customClass="TabBarController" customModule="TNU_STUDENTS" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="UUi-KN-Fy3"/>
+                    <tabBar key="tabBar" contentMode="bottom" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="vNi-L5-PG4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Kzo-N8-mkQ" kind="relationship" relationship="viewControllers" id="2hQ-lE-Q0s"/>
+                        <segue destination="zS3-ud-SAN" kind="relationship" relationship="viewControllers" id="vpe-Jv-kYO"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="70I-nR-DeM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-178" y="-772"/>
         </scene>
     </scenes>
     <resources>
+        <image name="ic_points" width="32" height="32"/>
+        <image name="ic_profile" width="32" height="32"/>
+        <image name="logout" width="32" height="32"/>
         <image name="password" width="32" height="32"/>
+        <image name="student_cap" width="512" height="512"/>
     </resources>
 </document>

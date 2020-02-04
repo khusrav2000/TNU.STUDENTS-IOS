@@ -13,12 +13,12 @@ extension UIViewController {
     
     func hideKeyboard() {
         let Tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self,
-                                                                action: #selector(DismissKeyboard))
+                                                                action: #selector(dismissKeyboard))
         
         view.addGestureRecognizer(Tap)
     }
     
-    @objc func DismissKeyboard(){
+    @objc func dismissKeyboard(){
         view.endEditing(true)
     }
     
@@ -44,7 +44,7 @@ class LoginController: UIViewController {
         super.viewDidLoad()
         
         loginView.setGradientBakcground(colorStart: Colors.gradStart, colorCenter: Colors.gradCenter, colorEnd: Colors.gradEnd)
-        
+                
         let loginImage = UIImage(named: "login")
         addLeftImageTo(txtField: loginText, andImage: loginImage! )
         
@@ -65,12 +65,26 @@ class LoginController: UIViewController {
         
         setLetterSpacing(text: universityName, value: 5.0)
         setLineSpacing(text: universityName, value: 8.0)
+        let token = UserDefaults.standard.string(forKey: "token") ?? ""
+        if(token != ""){
+            loginText.resignFirstResponder()
+            hiddenFields()
+        }
         
+    }
+    
+    func hiddenFields(){
+        
+        loginButton.isHidden = true
+        passwordText.isHidden = true
+        loginText.isHidden = true
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         if(token != ""){
             login()
         }
-      
     }
     
     func setLetterSpacing(text: UILabel, value: Double){
@@ -126,7 +140,7 @@ class LoginController: UIViewController {
     @IBAction func buttonAction(sender:UIButton!){
         let btnsendtag: UIButton = sender
         if btnsendtag.tag == 1 {
-            
+            UserDefaults.standard.set("", forKey: "token")
             login()
             print("qqq")
         
@@ -167,21 +181,52 @@ class LoginController: UIViewController {
                 print("ERROR!!")
                 print(error.localizedDescription)
             } else if let studentInfo = result {
-                print("Omad!!")
-                print(studentInfo)
-                self.startMain()
+                StudentData.studentInfo = studentInfo
+                self.loadSemesters()
             }
         }
     }
     
+    var sems = ""
     func loadSemesters(){
-        self.startMain()
+        
+        let token = UserDefaults.standard.string(forKey: "token")!
+        
+        networkClient.getSemesters(token: token) { (result, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let semesters = result {
+                StudentData.semesters = semesters
+                self.loadCorsesBySemester(semesterId: semesters[0].ID!)
+            }
+        }
+    
+    }
+    
+    func loadCorsesBySemester(semesterId: Int){
+        
+        let token = UserDefaults.standard.string(forKey: "token")!
+        print(semesterId)
+        networkClient.getCoursesBySemester(token: token, semesterId: semesterId) { (result, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let courses = result {
+                StudentData.courses = courses
+                self.startMain()
+            }
+        }
+    
     }
     
     func startMain(){
+        
         dismiss(animated: true, completion: nil)
         performSegue(withIdentifier: "goMain", sender: self)
+
+        
     }
+    
+    
     
 }
 
