@@ -15,4 +15,5 @@ struct Colors {
     static let gradEnd              = UIColor(red:17/255, green:49/255, blue:223/255, alpha: 1.0)
     static let lineColor            = UIColor(red:176/255, green:176/255, blue:176/255, alpha: 1.0)
     static let bottomTabBar         = UIColor(red:36/255, green:38/255, blue:61/255, alpha: 1.0)
+    static let coursesListItem      = UIColor(red:36/255, green:38/255, blue:81/255, alpha: 1.0)
 }

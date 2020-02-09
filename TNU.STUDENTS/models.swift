@@ -18,7 +18,7 @@ struct StudentsInfo: Codable {
     var Faculty: Language?
     var Specialty: Language?
     var CodeSpecialty: String?
-    var Trainingform: String?
+    var TrainingForm: String?
     var TrainingLevel: String?
     var Course: Int8?
     var Group: String?

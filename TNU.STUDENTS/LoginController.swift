@@ -63,8 +63,9 @@ class LoginController: UIViewController {
         
         loginButton.layer.cornerRadius = 30
         
-        setLetterSpacing(text: universityName, value: 5.0)
-        setLineSpacing(text: universityName, value: 8.0)
+       
+        setLetterAndLineSpacing(text: universityName, valueLetter: 5.0, valueLine: 8.0)
+        
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         if(token != ""){
             loginText.resignFirstResponder()
@@ -87,21 +88,16 @@ class LoginController: UIViewController {
         }
     }
     
-    func setLetterSpacing(text: UILabel, value: Double){
-        let attributedString = text.attributedText as! NSMutableAttributedString
-        attributedString.addAttribute(NSAttributedString.Key.kern, value: value, range: NSMakeRange(0, attributedString.length))
-        
-        text.attributedText = attributedString
-    }
+   
     
-    func setLineSpacing(text: UILabel, value: Double){
+    func setLetterAndLineSpacing(text: UILabel, valueLetter: Double, valueLine: Double){
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = CGFloat(value)
+        paragraphStyle.lineSpacing = CGFloat(valueLine)
         
-        let attrString = text.attributedText as! NSMutableAttributedString
-        attrString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attrString.length))
+        let attr = [NSAttributedString.Key.paragraphStyle: paragraphStyle, NSAttributedString.Key.kern: valueLetter] as [NSAttributedString.Key : Any]
         
-        text.attributedText = attrString
+        text.attributedText = NSAttributedString(string: text.text!, attributes: attr)
+        
         text.textAlignment = NSTextAlignment.center
         
     }
@@ -182,6 +178,7 @@ class LoginController: UIViewController {
                 print(error.localizedDescription)
             } else if let studentInfo = result {
                 StudentData.studentInfo = studentInfo
+                print(studentInfo)
                 self.loadSemesters()
             }
         }
