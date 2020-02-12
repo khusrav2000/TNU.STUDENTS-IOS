@@ -12,7 +12,6 @@ import UIKit
 class PointsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var coursesList: UITableView!
-    let textCellIdentidier = "coursesListCells"
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -32,14 +31,18 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     // MARK: UITableViewDelegate Methods
-    func numberOfSectionsTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         print("ITs work 1")
-        return 1
+        print("ravno \(StudentData.courses?.count ?? 0)")
+        return StudentData.courses?.count ?? 0
     }
+    
+
+
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("ITs work 2")
-        return StudentData.courses?.count ?? 0
+        return 1
     }
     
     /*func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -48,13 +51,22 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("ITs work 3")
-        let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentidier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "coursesListCells", for: indexPath) as! CourseCell
         
-        let row = indexPath.row
+        let row = indexPath.section
+        print(row)
         //cell.textLabel?.text = StudentData.courses?[row].SubjectName?.TJ ?? ""
-        cell.textLabel?.text = "sdfkjgjkhgdslhgsdlhgdfjlghdfjghdkfjghkdfjgjkdfhgdfdfkjgdfjgdkjfhgkdjfhgkdjfhgkjdfhgkdfjhgkdfjhgkdjfhgkdjfghkdfjghdkfjghdkfjghdkfjghdkfjghdkfjhgkdfjhgkdjfhgkdjfhgkdfhgkdfhgdkfjghdkfhjg"
+        cell.setCourse(course: StudentData.courses?[row])
+        
         cell.layer.cornerRadius = 10
         cell.backgroundColor = Colors.coursesListItem
+        
+        let customColorView: UIView = UIView()
+        customColorView.backgroundColor = Colors.selectedCourseCell
+        //customColorView.backgroundColor = .white
+        cell.selectedBackgroundView = customColorView
+        
+        //cell.clipsToBounds = true
         
         //cell.layoutMargins = UIEdgeInsets(top: 100, left: 0, bottom: 100, right: 0)
         //cell.separatorInset = UIEdgeInsets(top: 100, left: 0, bottom: 100, right: 0)
@@ -62,4 +74,26 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
         return cell
         
     }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20.0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .clear
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let position = indexPath.section
+        print("in sec \(position)")
+        
+        //dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "openCoursePoints", sender: self)
+    }
+    
+    
+    
+    
 }

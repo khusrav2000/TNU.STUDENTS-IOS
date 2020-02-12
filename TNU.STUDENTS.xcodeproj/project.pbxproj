@@ -13,6 +13,9 @@
 		FA12AA4823E97812000E2639 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12AA4723E97812000E2639 /* TabBarController.swift */; };
 		FA12AA4A23E97E10000E2639 /* PointsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12AA4923E97E10000E2639 /* PointsController.swift */; };
 		FA12AA4C23E97E8B000E2639 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12AA4B23E97E8B000E2639 /* ProfileController.swift */; };
+		FA12AA5423F3C647000E2639 /* CourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12AA5323F3C647000E2639 /* CourseCell.swift */; };
+		FA12AA5623F443B0000E2639 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12AA5523F443B0000E2639 /* CircularProgressView.swift */; };
+		FA12AA5823F45655000E2639 /* CoursePointsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA12AA5723F45655000E2639 /* CoursePointsController.swift */; };
 		FA1FFF3323DEB8FB00A3CDDF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1FFF3223DEB8FB00A3CDDF /* Images.xcassets */; };
 		FA1FFF3C23E1E30500A3CDDF /* NetworkingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1FFF3B23E1E30500A3CDDF /* NetworkingClient.swift */; };
 		FA41D90D23DD923C00BBDCCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA41D90C23DD923C00BBDCCA /* AppDelegate.swift */; };
@@ -33,6 +36,9 @@
 		FA12AA4723E97812000E2639 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FA12AA4923E97E10000E2639 /* PointsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsController.swift; sourceTree = "<group>"; };
 		FA12AA4B23E97E8B000E2639 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		FA12AA5323F3C647000E2639 /* CourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCell.swift; sourceTree = "<group>"; };
+		FA12AA5523F443B0000E2639 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		FA12AA5723F45655000E2639 /* CoursePointsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePointsController.swift; sourceTree = "<group>"; };
 		FA1FFF3223DEB8FB00A3CDDF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FA1FFF3B23E1E30500A3CDDF /* NetworkingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClient.swift; sourceTree = "<group>"; };
 		FA41D90923DD923C00BBDCCA /* TNU.STUDENTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TNU.STUDENTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +106,9 @@
 				FA12AA4723E97812000E2639 /* TabBarController.swift */,
 				FA12AA4923E97E10000E2639 /* PointsController.swift */,
 				FA12AA4B23E97E8B000E2639 /* ProfileController.swift */,
+				FA12AA5323F3C647000E2639 /* CourseCell.swift */,
+				FA12AA5523F443B0000E2639 /* CircularProgressView.swift */,
+				FA12AA5723F45655000E2639 /* CoursePointsController.swift */,
 			);
 			path = TNU.STUDENTS;
 			sourceTree = "<group>";
@@ -197,11 +206,14 @@
 				FA12AA4023E2CBF2000E2639 /* models.swift in Sources */,
 				FA41D92A23DDA94100BBDCCA /* UIViewGradient.swift in Sources */,
 				FA12AA4823E97812000E2639 /* TabBarController.swift in Sources */,
+				FA12AA5423F3C647000E2639 /* CourseCell.swift in Sources */,
 				FA41D91723DD923C00BBDCCA /* TNU_STUDENTS.xcdatamodeld in Sources */,
 				FA41D92823DDA6DE00BBDCCA /* Colors.swift in Sources */,
 				FA12AA4A23E97E10000E2639 /* PointsController.swift in Sources */,
+				FA12AA5823F45655000E2639 /* CoursePointsController.swift in Sources */,
 				FA12AA4223E46E1A000E2639 /* Constants.swift in Sources */,
 				FA41D90D23DD923C00BBDCCA /* AppDelegate.swift in Sources */,
+				FA12AA5623F443B0000E2639 /* CircularProgressView.swift in Sources */,
 				FA41D90F23DD923C00BBDCCA /* SceneDelegate.swift in Sources */,
 				FA41D92623DD938600BBDCCA /* LoginController.swift in Sources */,
 				FA12AA4C23E97E8B000E2639 /* ProfileController.swift in Sources */,
