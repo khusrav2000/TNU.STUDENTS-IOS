@@ -60,6 +60,10 @@ class ProfileController: UIViewController {
         
         UserDefaults.standard.set("", forKey: "token")
         
+        dismiss(animated: false, completion: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("RefreshController"), object: nil)
+        
+        
         //dismiss(animated: true, completion: nil)
         //performSegue(withIdentifier: "logout", sender: self)
     }

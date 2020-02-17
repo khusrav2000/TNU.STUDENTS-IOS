@@ -13,9 +13,13 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
     
     @IBOutlet weak var coursesList: UITableView!
     
+    private let networkClient = NetworkingClient()
+    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    var semActiveID: Int? = nil
     
     override func viewDidLoad() {
         print("Points")
@@ -28,6 +32,55 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
         //coursesList.separatorInset = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
         //coursesList.estimatedRowHeight = 100
         
+        /*let cn: Int = Shared.shared.semesterId ?? -1
+        print(cn)*/
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateDate), name: NSNotification.Name("UpdateCourses"), object: nil)
+        
+        for i in StudentData.semesters ?? [] {
+            if i.isActive ?? false {
+                semActiveID = i.ID
+            }
+        }
+        
+    }
+    
+    @objc func updateDate(){
+        print("Update")
+        var semNowId: Int? = nil
+        for i in StudentData.semesters ?? [] {
+            if i.isActive ?? false {
+                semNowId = i.ID
+            }
+        }
+        
+        if semNowId != semActiveID {
+            updateCourses(semesterId: semNowId)
+        }
+        
+    }
+    
+    func updateCourses(semesterId: Int?){
+        coursesList.isHidden = true
+        
+        if semesterId != nil {
+            semActiveID = semesterId
+            let token = UserDefaults.standard.string(forKey: "token")!
+            
+            networkClient.getCoursesBySemester(token: token, semesterId: semesterId!) { (result, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else if let courses = result {
+                    StudentData.courses = courses
+                    self.updateTable()
+                }
+            }
+        }
+    }
+    
+    func updateTable(){
+        coursesList.reloadData()
+        coursesList.isHidden = false
     }
     
     // MARK: UITableViewDelegate Methods
@@ -85,15 +138,60 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
         return headerView
     }
     
+    var position: Int?
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let position = indexPath.section
-        print("in sec \(position)")
+        position = indexPath.section
+        print("in sec \(String(describing: position))")
         
         //dismiss(animated: true, completion: nil)
         performSegue(withIdentifier: "openCoursePoints", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "openCoursePoints") {
+            let coursPo = segue.destination as! CoursePointsController
+            coursPo.position = position
+        }
+    }
     
     
+   
+    @IBAction func showSelectSemster(_ sender: UIButton) {
+        
+        //performSegue(withIdentifier: "selectSemester", sender: nil)
+        
+        /*let vc = self.storyboard?.instantiateViewController(withIdentifier: "selectSemesterStoryboard") as! SelectSemesterController
+        
+        //let vc = UIViewController()
+        //vc.preferredContentSize = CGSize(width: 100, height: 50)
+    
+        
+        vc.modalPresentationStyle = .popover
+        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+        
+        //popover.barButtonItem = sender
+        //popover.sourceRect = sender.bounds
+        //popover.permittedArrowDirections = [.down, .up]
+        popover.sourceView = view
+        present(vc, animated: true, completion: nil)*/
+        
+        
+        /*let sortOrderDescendingOptionItem = SortOrderOptionItem(text: "Descending", font: UIFont.systemFont(ofSize: 13), isSelected: true, orderType: .descending)
+        let sortOrderAscendingOptionItem = SortOrderOptionItem(text: "Ascending", font: UIFont.systemFont(ofSize: 13), isSelected: false, orderType: .ascending)
+        
+        let items: [[RBOptionItem]] = [[sortOrderDescendingOptionItem, sortOrderAscendingOptionItem]]
+         
+        let optionItemListVC = RBOptionItemListViewController()
+        optionItemListVC.items = items
+        
+        guard let popoverPresentationController = optionItemListVC.popoverPresentationController else { fatalError("Set Modal presentation style") }
+        //popoverPresentationController.barButtonItem = barButtonItem
+        popoverPresentationController.delegate = self
+        self.present(optionItemListVC, animated: true, completion: nil)*/
+        
+        
+    }
     
 }
+
+

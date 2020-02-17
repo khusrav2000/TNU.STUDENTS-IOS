@@ -72,6 +72,14 @@ class LoginController: UIViewController {
             hiddenFields()
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(refreshController), name: NSNotification.Name("RefreshController"), object: nil)
+        
+    }
+    
+    @objc func refreshController(){
+        clearFields()
+        showFields()
+        print("Refresh")
     }
     
     func hiddenFields(){
@@ -79,6 +87,17 @@ class LoginController: UIViewController {
         loginButton.isHidden = true
         passwordText.isHidden = true
         loginText.isHidden = true
+    }
+    
+    func showFields(){
+        loginButton.isHidden = false
+        passwordText.isHidden = false
+        loginText.isHidden = false
+    }
+    
+    func clearFields(){
+        loginText.text = ""
+        passwordText.text = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -195,12 +214,14 @@ class LoginController: UIViewController {
             } else if let semesters = result {
                 StudentData.semesters = semesters
                 self.loadCorsesBySemester(semesterId: semesters[0].ID!)
+                StudentData.semesters?[0].isActive = true
             }
         }
     
     }
     
     func loadCorsesBySemester(semesterId: Int){
+        
         
         let token = UserDefaults.standard.string(forKey: "token")!
         print(semesterId)
@@ -217,10 +238,25 @@ class LoginController: UIViewController {
     
     func startMain(){
         
-        dismiss(animated: true, completion: nil)
-        performSegue(withIdentifier: "goMain", sender: self)
-
+        //dismiss(animated: true, completion: nil)
+        //performSegue(withIdentifier: "goMain", sender: self)
         
+        /*
+        let mainStoryboard = UIStoryboard(name: "MainStoryboard", bundle: Bundle.main)
+        
+        guard let destinationViewController = mainStoryboard.instantiateViewController(identifier: "MainStoryboard") else {
+            print("Dont find")
+            return
+        }
+        */
+        
+        //let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        
+    
+        let vc = storyboard?.instantiateViewController(withIdentifier: "MainStoryboard") as! TabBarController
+        present(vc, animated: true, completion: nil)
+    
+
     }
     
     

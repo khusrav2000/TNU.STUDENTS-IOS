@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Message: Codable {
     var message: String?
@@ -59,3 +60,4 @@ struct WeekPoints: Codable {
     var MaxPoint: Double?
     var IsCurrentWeek: Bool?
 }
+
