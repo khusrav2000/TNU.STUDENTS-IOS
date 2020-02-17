@@ -18,8 +18,16 @@ class CourseCell: UITableViewCell {
     
     
     func setCourse(course: Course?){
-        courseName.text = course?.SubjectName?.TJ!
-        teacherName.text = course?.TeacherName?.TJ!
+        
+        let lang: String? = UserDefaults.standard.string(forKey: "AppLanguage")
+        
+        if lang == "ru" {
+            courseName.text = course?.SubjectName?.RU!
+            teacherName.text = course?.TeacherName?.RU!
+        } else {
+            courseName.text = course?.SubjectName?.TJ!
+            teacherName.text = course?.TeacherName?.TJ!
+        }
         
         progressPoint.trackColor = Colors.trackProgress
         progressPoint.progressColor = Colors.progressPoint

@@ -1,0 +1,99 @@
+
+/* Class = "UILabel"; text = "Ҳафта"; ObjectID = "6bZ-HM-pdx"; */
+"6bZ-HM-pdx.text" = "Неделя";
+
+/* Class = "UILabel"; text = "educational level"; ObjectID = "86X-9d-opH"; */
+"86X-9d-opH.text" = "educational level";
+
+/* Class = "UILabel"; text = "group"; ObjectID = "9dX-rm-yzb"; */
+"9dX-rm-yzb.text" = "group";
+
+/* Class = "UILabel"; text = "study form"; ObjectID = "A4f-XT-rIN"; */
+"A4f-XT-rIN.text" = "study form";
+
+/* Class = "UILabel"; text = "Соли дохилшави"; ObjectID = "BSN-qh-2B1"; */
+"BSN-qh-2B1.text" = "Год поступления";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "CQm-dY-Caz"; */
+"CQm-dY-Caz.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Шакли хониш"; ObjectID = "Cob-ot-AEN"; */
+"Cob-ot-AEN" = "Форма обчучения";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DCr-B6-3Vc"; */
+"DCr-B6-3Vc.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Гуруҳ"; ObjectID = "EJV-gT-cmx"; */
+"EJV-gT-cmx.text" = "Группа";
+
+/* Class = "UILabel"; text = "Ихтисос"; ObjectID = "FWK-Pn-cGk"; */
+"FWK-Pn-cGk.text" = "Направления";
+
+/* Class = "UITabBarItem"; title = "Профил"; ObjectID = "IBN-uc-w3Q"; */
+"IBN-uc-w3Q.title" = "Профиль";
+
+/* Class = "UILabel"; text = "course"; ObjectID = "IGz-bq-sVl"; */
+"IGz-bq-sVl.text" = "course";
+
+/* Class = "UILabel"; text = "TNU.STUDENT"; ObjectID = "M0v-pY-kvf"; */
+"M0v-pY-kvf.text" = "TNU.STUDENT";
+
+/* Class = "UILabel"; text = "Сатҳи маълумот"; ObjectID = "S4c-MK-Sg5"; */
+"S4c-MK-Sg5.text" = "Уровень образования";
+
+/* Class = "UILabel"; text = "speciality name"; ObjectID = "Sm1-Nx-jh3"; */
+"Sm1-Nx-jh3.text" = "speciality name";
+
+/* Class = "UILabel"; text = "ID"; ObjectID = "WK5-cj-tVg"; */
+"WK5-cj-tVg.text" = "ID";
+
+/* Class = "UILabel"; text = "0.0"; ObjectID = "WSY-jh-9aL"; */
+"WSY-jh-9aL.text" = "0.0";
+
+/* Class = "UITextField"; placeholder = "Логин"; ObjectID = "Wea-n1-HGi"; */
+"Wea-n1-HGi.placeholder" = "Логин";
+
+/* Class = "UILabel"; text = "100.0"; ObjectID = "Z9U-aS-Cwk"; */
+"Z9U-aS-Cwk.text" = "100.0";
+
+/* Class = "UITabBarItem"; title = "Холҳо"; ObjectID = "bcC-Dn-vIN"; */
+"bcC-Dn-vIN.title" = "Баллы";
+
+/* Class = "UILabel"; text = "full name"; ObjectID = "cWU-PR-tTS"; */
+"cWU-PR-tTS.text" = "full name";
+
+/* Class = "UILabel"; text = "Холҳо"; ObjectID = "cm2-U0-rYs"; */
+"cm2-U0-rYs.text" = "Баллы";
+
+/* Class = "UILabel"; text = "teacher name"; ObjectID = "dxP-gk-civ"; */
+"dxP-gk-civ.text" = "teacher name";
+
+/* Class = "UILabel"; text = "Факултет"; ObjectID = "fn0-fM-NHC"; */
+"fn0-fM-NHC.text" = "Факультет";
+
+/* Class = "UIButton"; normalTitle = "Баромад"; ObjectID = "p3Y-VW-FiQ"; */
+"p3Y-VW-FiQ.normalTitle" = "Выход";
+
+/* Class = "UILabel"; text = "course name"; ObjectID = "pDE-uY-Zrd"; */
+"pDE-uY-Zrd.text" = "course name";
+
+/* Class = "UITextField"; placeholder = "Гузарвожа"; ObjectID = "pak-Ut-ijQ"; */
+"pak-Ut-ijQ.placeholder" = "Пароль";
+
+/* Class = "UINavigationItem"; title = "Язык приложения"; ObjectID = "rFC-7D-rdP"; */
+"rFC-7D-rdP.title" = "Язык приложения";
+
+/* Class = "UILabel"; text = "entrance year"; ObjectID = "re2-a6-Atn"; */
+"re2-a6-Atn.text" = "entrance year";
+
+/* Class = "UILabel"; text = "faculty name"; ObjectID = "v5G-eI-pGC"; */
+"v5G-eI-pGC.text" = "faculty name";
+
+/* Class = "UILabel"; text = "Курс / давраи таҳсил"; ObjectID = "xFB-La-wcq"; */
+"xFB-La-wcq.text" = "Курс / давраи таҳсил";
+
+/* Class = "UILabel"; text = "ДОНИШГОҲИ МИЛЛИ ТОҶИКИСТОН"; ObjectID = "zZr-hG-Ace"; */
+"zZr-hG-Ace.text" = "ТАДЖИКСКИЙ НАЦИОНАЛЬНЫЙ УНИВЕРСИЕТ";
+
+/* Class = "UINavigationItem"; title = "Нимсоларо интихоб кунед"; ObjectID = "zbD-c7-PkK"; */
+"zbD-c7-PkK.title" = "Выберите семестер";

@@ -12,6 +12,7 @@ import UIKit
 class PointsController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var coursesList: UITableView!
+    @IBOutlet weak var selectLanguage: UIButton!
     
     private let networkClient = NetworkingClient()
     
@@ -29,6 +30,7 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
         coursesList.delegate = self
         coursesList.dataSource = self
         coursesList.backgroundColor = .clear
+        changeImage()
         //coursesList.separatorInset = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
         //coursesList.estimatedRowHeight = 100
         
@@ -43,6 +45,20 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
             }
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(changeImage), name: NSNotification.Name("changeImage"), object: nil)
+        
+    }
+    
+    @objc func changeImage(){
+        let lang: String? = UserDefaults.standard.string(forKey: "AppLanguage")
+        if lang == "tg" {
+            selectLanguage.setImage(UIImage(named: "ic_tajikistan"), for: .normal)
+        
+        } else if lang == "ru" {
+            selectLanguage.setImage(UIImage(named: "ic_russia"), for: .normal)
+        }
+        
+    
     }
     
     @objc func updateDate(){

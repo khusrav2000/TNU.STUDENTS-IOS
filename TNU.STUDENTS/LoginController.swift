@@ -43,6 +43,13 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let _ = UserDefaults.standard.string(forKey: "AppLanguage") {} else {
+            UserDefaults.standard.set("tg", forKey: "AppLanguage")
+        }
+        
+        UserDefaults.standard.set([UserDefaults.standard.string(forKey: "AppLanguage")], forKey: "AppleLanguages")
+        UserDefaults.standard.synchronize()
+        
         loginView.setGradientBakcground(colorStart: Colors.gradStart, colorCenter: Colors.gradCenter, colorEnd: Colors.gradEnd)
                 
         let loginImage = UIImage(named: "login")

@@ -58,6 +58,10 @@
 		FA41D92E23DDB6E700BBDCCA /* a_alterna_sw.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = a_alterna_sw.ttf; sourceTree = "<group>"; };
 		FA6C025923FABA6300057AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA9BBEC723FABBE70078B1F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA9BBEC923FABD660078B1F6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		FA9BBECA23FABD660078B1F6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FA9BBECB23FAC22D0078B1F6 /* tg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tg; path = tg.lproj/Main.strings; sourceTree = "<group>"; };
+		FA9BBECC23FAC22D0078B1F6 /* tg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tg; path = tg.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FAE5E22F23F53B62007DA1CD /* WeekPointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPointCell.swift; sourceTree = "<group>"; };
 		FAE5E23123F5A6A5007DA1CD /* SelectSemesterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSemesterController.swift; sourceTree = "<group>"; };
 		FAE5E23723FAA71C007DA1CD /* SelectLanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageController.swift; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 				tg,
 			);
 			mainGroup = FA41D90023DD923C00BBDCCA;
@@ -240,6 +245,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA6C025923FABA6300057AED /* Base */,
+				FA9BBEC923FABD660078B1F6 /* ru */,
+				FA9BBECB23FAC22D0078B1F6 /* tg */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -248,6 +255,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA9BBEC723FABBE70078B1F6 /* Base */,
+				FA9BBECA23FABD660078B1F6 /* ru */,
+				FA9BBECC23FAC22D0078B1F6 /* tg */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

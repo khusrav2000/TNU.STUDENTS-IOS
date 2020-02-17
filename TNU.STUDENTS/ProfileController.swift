@@ -36,11 +36,23 @@ class ProfileController: UIViewController {
         generalInfomation.layer.cornerRadius = 10
         otherInformation.layer.cornerRadius = 10
         
-        fullName.text = StudentData.studentInfo?.FullName?.TJ!
-        studentID.text = StudentData.studentInfo?.RecordBookNumber!
-        facultyName.text = StudentData.studentInfo?.Faculty?.TJ
+        let lang: String? = UserDefaults.standard.string(forKey: "AppLanguage")
+        let name: String
         
-        let name: String = StudentData.studentInfo?.Specialty?.TJ ?? ""
+        if lang == "ru"{
+            fullName.text = StudentData.studentInfo?.FullName?.RU!
+            facultyName.text = StudentData.studentInfo?.Faculty?.RU
+            name = StudentData.studentInfo?.Specialty?.RU ?? ""
+        } else {
+            fullName.text = StudentData.studentInfo?.FullName?.TJ!
+            facultyName.text = StudentData.studentInfo?.Faculty?.TJ
+            name = StudentData.studentInfo?.Specialty?.TJ ?? ""
+        }
+        
+        studentID.text = StudentData.studentInfo?.RecordBookNumber!
+        
+        
+        
         let code: String = StudentData.studentInfo?.CodeSpecialty ?? ""
         specialty.text = "\(name) (\(code))"
         studyForm.text = StudentData.studentInfo?.TrainingForm
