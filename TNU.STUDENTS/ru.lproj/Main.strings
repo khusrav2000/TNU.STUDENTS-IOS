@@ -18,7 +18,7 @@
 "CQm-dY-Caz.normalTitle" = "Login";
 
 /* Class = "UILabel"; text = "Шакли хониш"; ObjectID = "Cob-ot-AEN"; */
-"Cob-ot-AEN" = "Форма обчучения";
+"Cob-ot-AEN.text" = "Форма обчучения";
 
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "DCr-B6-3Vc"; */
 "DCr-B6-3Vc.normalTitle" = "Button";
@@ -90,7 +90,7 @@
 "v5G-eI-pGC.text" = "faculty name";
 
 /* Class = "UILabel"; text = "Курс / давраи таҳсил"; ObjectID = "xFB-La-wcq"; */
-"xFB-La-wcq.text" = "Курс / давраи таҳсил";
+"xFB-La-wcq.text" = "Курс / период обучения";
 
 /* Class = "UILabel"; text = "ДОНИШГОҲИ МИЛЛИ ТОҶИКИСТОН"; ObjectID = "zZr-hG-Ace"; */
 "zZr-hG-Ace.text" = "ТАДЖИКСКИЙ НАЦИОНАЛЬНЫЙ УНИВЕРСИЕТ";

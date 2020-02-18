@@ -26,10 +26,24 @@ class NetworkingClient {
         let parameters = ["login": login, "password": password]
         
         Alamofire.request(url, method: .post, parameters: parameters, headers: headers ).validate().responseJSON { response in
+            
             if let error = response.error {
+                
+                if response.response != nil {
+                    if response.response?.statusCode == 404 {
+                        IncLoadData.inCorrectLogOrPass = true
+                        print("ASDASdasd")
+                    } 
+                } else {
+                    IncLoadData.serverNotResponse = true
+                }
+                
                 completion(nil, error)
+                
+                
             } else if let jsonDict = response.result.value as? [String: Any] {
-                //let token = jsonDict["message"] as! String
+                print("EE")
+                //let token = jsonDic["message"] as! String
                 //print(token)
                 completion(jsonDict, nil)
             }
@@ -47,6 +61,11 @@ class NetworkingClient {
         
         Alamofire.request(url, method: .get, headers: headers ).validate().responseJSON { response in
             if let error = response.error {
+                
+                if response.response == nil {
+                    IncLoadData.serverNotResponse = true
+                }
+            
                 completion(nil, error)
             } else if let result = response.data {
                 let jsonDecoder = JSONDecoder()
@@ -71,8 +90,13 @@ class NetworkingClient {
         
         Alamofire.request(url, method: .get, headers: headers ).validate().responseJSON { response in
            
+            
             if let error = response.error{
+                if response.response == nil {
+                    IncLoadData.serverNotResponse = true
+                }
                 completion(nil, error)
+                print(error.localizedDescription)
             } else if let result = response.data {
                 let jsonDecoder = JSONDecoder()
                 do {
@@ -97,6 +121,9 @@ class NetworkingClient {
         Alamofire.request(url, method: .get, headers: headers ).validate().responseJSON { response in
             print(response)
             if let error = response.error {
+                if response.response == nil {
+                    IncLoadData.serverNotResponse = true
+                }
                 completion(nil, error)
             } else if let result = response.data {
                 let jsonDecoder = JSONDecoder()
@@ -109,4 +136,5 @@ class NetworkingClient {
             }
         }
     }
+    
 }

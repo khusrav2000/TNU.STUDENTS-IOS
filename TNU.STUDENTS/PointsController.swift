@@ -13,6 +13,7 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
     
     @IBOutlet weak var coursesList: UITableView!
     @IBOutlet weak var selectLanguage: UIButton!
+    @IBOutlet weak var progressLoadCourses: UIActivityIndicatorView!
     
     private let networkClient = NetworkingClient()
     
@@ -21,6 +22,7 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     var semActiveID: Int? = nil
+    
     
     override func viewDidLoad() {
         print("Points")
@@ -31,6 +33,9 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
         coursesList.dataSource = self
         coursesList.backgroundColor = .clear
         changeImage()
+        
+        progressLoadCourses.isHidden = true
+        progressLoadCourses.startAnimating()
         //coursesList.separatorInset = UIEdgeInsets(top: 10,left: 10,bottom: 10,right: 10)
         //coursesList.estimatedRowHeight = 100
         
@@ -42,6 +47,7 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
         for i in StudentData.semesters ?? [] {
             if i.isActive ?? false {
                 semActiveID = i.ID
+
             }
         }
         
@@ -62,6 +68,7 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     @objc func updateDate(){
+        
         print("Update")
         var semNowId: Int? = nil
         for i in StudentData.semesters ?? [] {
@@ -78,16 +85,20 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
     
     func updateCourses(semesterId: Int?){
         coursesList.isHidden = true
+        progressLoadCourses.isHidden = false
         
         if semesterId != nil {
-            semActiveID = semesterId
+            
             let token = UserDefaults.standard.string(forKey: "token")!
             
             networkClient.getCoursesBySemester(token: token, semesterId: semesterId!) { (result, error) in
                 if let error = error {
                     print(error.localizedDescription)
+                    
+                    self.showRightToast()
                 } else if let courses = result {
                     StudentData.courses = courses
+                    self.semActiveID = semesterId
                     self.updateTable()
                 }
             }
@@ -95,8 +106,9 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func updateTable(){
-        coursesList.reloadData()
+        progressLoadCourses.isHidden = false
         coursesList.isHidden = false
+        coursesList.reloadData()
     }
     
     // MARK: UITableViewDelegate Methods
@@ -160,15 +172,26 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
         print("in sec \(String(describing: position))")
         
         //dismiss(animated: true, completion: nil)
-        performSegue(withIdentifier: "openCoursePoints", sender: self)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "openCoursePoints") {
-            let coursPo = segue.destination as! CoursePointsController
-            coursPo.position = position
+        StudentData.selectedCourse = StudentData.courses?[position ?? 0]
+        let lang = UserDefaults.standard.string(forKey: "AppLanguage")
+        if Reachability.isConnectedToNetwork() {
+            
+            performSegue(withIdentifier: "openCourseWeeksPoints", sender: self)
+        } else {
+            if lang == "ru"{
+                self.showToast(controller: self, message: "Проверте поключение к интернету", seconds: 2)
+            } else {
+                self.showToast(controller: self, message: "Пайвастшавии интернети худро бисанҷед", seconds: 2)
+            }
         }
     }
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "openCourseWeeksPoints") {
+            let coursPo = segue.destination as! CourseWeekPointsController
+            coursPo.position = position
+        }
+    }*/
     
     
    
@@ -207,6 +230,67 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
         
         
     }
+    
+    func showRightToast(){
+        coursesList.isHidden = false
+        progressLoadCourses.isHidden = true
+        let lang = UserDefaults.standard.string(forKey: "AppLanguage")
+        if IncLoadData.inCorrectLogOrPass == true {
+            print("SHOWEN!!!!!")
+            if lang == "ru" {
+                self.showToast(controller: self, message: "Неправлиьный логин или пароль", seconds: 2)
+            } else {
+                self.showToast(controller: self, message: "Логин ё гузарвожа нодуруст аст", seconds: 2)
+            }
+            
+               
+        } else if IncLoadData.serverNotResponse == true {
+            if Reachability.isConnectedToNetwork() {
+                if lang == "ru"{
+                    self.showToast(controller: self, message: "Сервер не отвечает", seconds: 2)
+                } else {
+                    self.showToast(controller: self, message: " Сервер ҷавоб намедиҳад", seconds: 2)
+                }
+            } else {
+                if lang == "ru"{
+                    self.showToast(controller: self, message: "Проверте поключение к интернету", seconds: 2)
+                } else {
+                    self.showToast(controller: self, message: "Пайвастшавии интернети худро бисанҷед", seconds: 2)
+                }
+            }
+        } else {
+            if lang == "ru"{
+                self.showToast(controller: self, message: "Неизвестная ошибка", seconds: 2)
+            } else {
+                self.showToast(controller: self, message: "Хатогии номаълум", seconds: 2)
+            }
+        }
+        
+        var i = 0
+        while i < StudentData.semesters?.count ?? 0 {
+            StudentData.semesters?[i].isActive = false
+            if StudentData.semesters?[i].ID == semActiveID {
+                StudentData.semesters?[i].isActive = true
+            }
+            i = i + 1
+        }
+        
+        IncLoadData.inCorrectLogOrPass = false
+        IncLoadData.serverNotResponse = false
+    }
+       
+    func showToast(controller: UIViewController, message: String, seconds: Double) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.view.backgroundColor = .black
+        alert.view.alpha = 0.7
+        alert.view.layer.cornerRadius = 20
+           
+        controller.present(alert, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
+            alert.dismiss(animated: true)
+        }
+    }
+    
     
 }
 

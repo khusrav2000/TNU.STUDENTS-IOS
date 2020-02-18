@@ -20,4 +20,6 @@ struct Colors {
     static let progressPoint        = UIColor(red: 55/255, green: 105/255, blue: 245/255, alpha: 1.0)
     static let selectedCourseCell   = UIColor(red:60/255, green:70/255, blue:120/255, alpha: 0.5)
     static let weekPointsBackground = UIColor(red:34/255, green:0/255, blue:49/255, alpha: 1.0)
+    static let weekPointsNavigationBar  = UIColor(red:0/255, green:75/255, blue:223/255, alpha: 1.0)
+    static let specialGrey          = UIColor(red:116/255, green:117/255, blue:117/255, alpha: 1.0)
 }

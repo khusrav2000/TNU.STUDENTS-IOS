@@ -13,5 +13,12 @@ struct StudentData {
     static var studentInfo: StudentsInfo? = nil
     static var semesters: [Semester]? = nil
     static var courses: [Course]? = nil
+    static var selectedCourse: Course? = nil
 
+}
+
+struct IncLoadData {
+    static var inCorrectLogOrPass = false
+    static var serverNotResponse = false
+    static var errorOnLoadData = false
 }

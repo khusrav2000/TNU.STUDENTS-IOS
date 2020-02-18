@@ -28,6 +28,9 @@
 		FA41D92F23DDB8B300BBDCCA /* a_alterna_sw.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA41D92E23DDB6E700BBDCCA /* a_alterna_sw.ttf */; };
 		FA6C025A23FABA6300057AED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6C025823FABA6300057AED /* Main.storyboard */; };
 		FA9BBEC823FABBE70078B1F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA9BBEC623FABBE70078B1F6 /* LaunchScreen.storyboard */; };
+		FA9BBECE23FBEE790078B1F6 /* CourseWeekPointsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BBECD23FBEE790078B1F6 /* CourseWeekPointsController.swift */; };
+		FA9BBED023FC03580078B1F6 /* LightStatusForNavCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BBECF23FC03580078B1F6 /* LightStatusForNavCon.swift */; };
+		FA9BBED223FC15130078B1F6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BBED123FC15130078B1F6 /* Reachability.swift */; };
 		FAE5E23023F53B62007DA1CD /* WeekPointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5E22F23F53B62007DA1CD /* WeekPointCell.swift */; };
 		FAE5E23223F5A6A5007DA1CD /* SelectSemesterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5E23123F5A6A5007DA1CD /* SelectSemesterController.swift */; };
 		FAE5E23823FAA71C007DA1CD /* SelectLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5E23723FAA71C007DA1CD /* SelectLanguageController.swift */; };
@@ -62,6 +65,9 @@
 		FA9BBECA23FABD660078B1F6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FA9BBECB23FAC22D0078B1F6 /* tg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tg; path = tg.lproj/Main.strings; sourceTree = "<group>"; };
 		FA9BBECC23FAC22D0078B1F6 /* tg */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tg; path = tg.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FA9BBECD23FBEE790078B1F6 /* CourseWeekPointsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseWeekPointsController.swift; sourceTree = "<group>"; };
+		FA9BBECF23FC03580078B1F6 /* LightStatusForNavCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightStatusForNavCon.swift; sourceTree = "<group>"; };
+		FA9BBED123FC15130078B1F6 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		FAE5E22F23F53B62007DA1CD /* WeekPointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPointCell.swift; sourceTree = "<group>"; };
 		FAE5E23123F5A6A5007DA1CD /* SelectSemesterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSemesterController.swift; sourceTree = "<group>"; };
 		FAE5E23723FAA71C007DA1CD /* SelectLanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageController.swift; sourceTree = "<group>"; };
@@ -122,6 +128,9 @@
 				FAE5E22F23F53B62007DA1CD /* WeekPointCell.swift */,
 				FAE5E23123F5A6A5007DA1CD /* SelectSemesterController.swift */,
 				FAE5E23723FAA71C007DA1CD /* SelectLanguageController.swift */,
+				FA9BBECD23FBEE790078B1F6 /* CourseWeekPointsController.swift */,
+				FA9BBECF23FC03580078B1F6 /* LightStatusForNavCon.swift */,
+				FA9BBED123FC15130078B1F6 /* Reachability.swift */,
 			);
 			path = TNU.STUDENTS;
 			sourceTree = "<group>";
@@ -218,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1FFF3C23E1E30500A3CDDF /* NetworkingClient.swift in Sources */,
+				FA9BBED023FC03580078B1F6 /* LightStatusForNavCon.swift in Sources */,
 				FA12AA4023E2CBF2000E2639 /* models.swift in Sources */,
 				FA41D92A23DDA94100BBDCCA /* UIViewGradient.swift in Sources */,
 				FA12AA4823E97812000E2639 /* TabBarController.swift in Sources */,
@@ -229,6 +239,8 @@
 				FA12AA5823F45655000E2639 /* CoursePointsController.swift in Sources */,
 				FA12AA4223E46E1A000E2639 /* Constants.swift in Sources */,
 				FAE5E23223F5A6A5007DA1CD /* SelectSemesterController.swift in Sources */,
+				FA9BBECE23FBEE790078B1F6 /* CourseWeekPointsController.swift in Sources */,
+				FA9BBED223FC15130078B1F6 /* Reachability.swift in Sources */,
 				FA41D90D23DD923C00BBDCCA /* AppDelegate.swift in Sources */,
 				FA12AA5623F443B0000E2639 /* CircularProgressView.swift in Sources */,
 				FA41D90F23DD923C00BBDCCA /* SceneDelegate.swift in Sources */,

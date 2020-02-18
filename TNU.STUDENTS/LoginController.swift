@@ -31,6 +31,11 @@ class LoginController: UIViewController {
 
     @IBOutlet weak var loginText: UITextField!
     @IBOutlet weak var passwordText: UITextField!
+    @IBOutlet weak var tryAgain: UIButton!
+    @IBOutlet weak var progressIndic: UIActivityIndicatorView!
+    @IBOutlet weak var progressIndicInsideLog: UIActivityIndicatorView!
+    
+    var loginTextRes: String?
     
     @IBOutlet weak var loginButton: UIButton!
     
@@ -49,6 +54,15 @@ class LoginController: UIViewController {
         
         UserDefaults.standard.set([UserDefaults.standard.string(forKey: "AppLanguage")], forKey: "AppleLanguages")
         UserDefaults.standard.synchronize()
+        
+        tryAgain.isHidden = true
+        progressIndic.isHidden = true
+        progressIndic.color = .white
+        progressIndicInsideLog.isHidden = true
+        progressIndic.startAnimating()
+        progressIndicInsideLog.startAnimating()
+        
+        loginTextRes = loginButton.titleLabel?.text!
         
         loginView.setGradientBakcground(colorStart: Colors.gradStart, colorCenter: Colors.gradCenter, colorEnd: Colors.gradEnd)
                 
@@ -171,11 +185,20 @@ class LoginController: UIViewController {
     
     func login(){
         
+        if loginButton.isHidden {
+            progressIndic.isHidden = false
+        } else {
+            progressIndicInsideLog.isHidden = false
+            loginButton.setTitle("", for: .normal)
+        }
+        
         let token = UserDefaults.standard.string(forKey: "token") ?? ""
         print(token)
         networkClient.auth(token: token, login: loginText.text!, password: passwordText.text! ){ (json, error) in
             if let error = error {
                 print(error.localizedDescription)
+                self.showRightToast()
+                
             } else if let json = json {
                 
                 let token = json["message"] as! String
@@ -202,6 +225,7 @@ class LoginController: UIViewController {
             if let error = error{
                 print("ERROR!!")
                 print(error.localizedDescription)
+                self.showRightToast()
             } else if let studentInfo = result {
                 StudentData.studentInfo = studentInfo
                 print(studentInfo)
@@ -218,6 +242,7 @@ class LoginController: UIViewController {
         networkClient.getSemesters(token: token) { (result, error) in
             if let error = error {
                 print(error.localizedDescription)
+                self.showRightToast()
             } else if let semesters = result {
                 StudentData.semesters = semesters
                 self.loadCorsesBySemester(semesterId: semesters[0].ID!)
@@ -235,6 +260,7 @@ class LoginController: UIViewController {
         networkClient.getCoursesBySemester(token: token, semesterId: semesterId) { (result, error) in
             if let error = error {
                 print(error.localizedDescription)
+                self.showRightToast()
             } else if let courses = result {
                 StudentData.courses = courses
                 self.startMain()
@@ -259,13 +285,77 @@ class LoginController: UIViewController {
         
         //let storyboard = UIStoryboard(name: "Login", bundle: nil)
         
-    
+        progressIndic.isHidden = true
+        progressIndicInsideLog.isHidden = true
+        loginButton.setTitle(loginTextRes, for: .normal)
+        
         let vc = storyboard?.instantiateViewController(withIdentifier: "MainStoryboard") as! TabBarController
         present(vc, animated: true, completion: nil)
     
 
     }
     
+    func showRightToast(){
+        progressIndic.isHidden = true
+        progressIndicInsideLog.isHidden = true
+        loginButton.setTitle(loginTextRes, for: .normal)
+        
+        let lang = UserDefaults.standard.string(forKey: "AppLanguage")
+        if IncLoadData.inCorrectLogOrPass == true {
+            print("SHOWEN!!!!!")
+            if lang == "ru" {
+                self.showToast(controller: self, message: "Неправлиьный логин или пароль", seconds: 2)
+            } else {
+                self.showToast(controller: self, message: "Логин ё гузарвожа нодуруст аст", seconds: 2)
+            }
+            
+            showFields()
+        } else if IncLoadData.serverNotResponse == true {
+            if Reachability.isConnectedToNetwork() {
+                if lang == "ru"{
+                    self.showToast(controller: self, message: "Сервер не отвечает", seconds: 2)
+                } else {
+                    self.showToast(controller: self, message: " Сервер ҷавоб намедиҳад", seconds: 2)
+                }
+            } else {
+                if lang == "ru"{
+                    self.showToast(controller: self, message: "Проверте поключение к интернету", seconds: 2)
+                } else {
+                    self.showToast(controller: self, message: "Пайвастшавии интернети худро бисанҷед", seconds: 2)
+                }
+            }
+        } else {
+            if lang == "ru"{
+                self.showToast(controller: self, message: "Неизвестная ошибка", seconds: 2)
+            } else {
+                self.showToast(controller: self, message: "Хатогии номаълум", seconds: 2)
+            }
+        }
+        
+        if loginButton.isHidden {
+            tryAgain.isHidden = false
+        }
+        
+        IncLoadData.inCorrectLogOrPass = false
+        IncLoadData.serverNotResponse = false
+    }
+    
+    func showToast(controller: UIViewController, message: String, seconds: Double) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alert.view.backgroundColor = .black
+        alert.view.alpha = 0.7
+        alert.view.layer.cornerRadius = 20
+        
+        controller.present(alert, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
+            alert.dismiss(animated: true)
+        }
+    }
+    
+    @IBAction func tryAgian(_ sender: Any) {
+        tryAgain.isHidden = true
+        login()
+    }
     
     
 }
