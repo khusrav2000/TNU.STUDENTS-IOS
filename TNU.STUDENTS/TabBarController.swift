@@ -18,7 +18,8 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         print("")
         //tabBar.standardAppearance.backgroundColor = Colors.bottomTabBar
-        tabBar.backgroundColor = Colors.bottomTabBar
+        tabBar.backgroundColor = Colors.coursesListItem
+        tabBar.barTintColor = Colors.coursesListItem
         
         //tabBar.frame = CGRect(x: 0, y: 0, width: tabBar.frame.width, height: tabBar.frame.height + 50 )
         //tabBar.frame.size.height = tabBar.frame.height + 20

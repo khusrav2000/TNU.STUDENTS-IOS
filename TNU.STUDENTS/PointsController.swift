@@ -106,7 +106,7 @@ class PointsController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func updateTable(){
-        progressLoadCourses.isHidden = false
+        progressLoadCourses.isHidden = true
         coursesList.isHidden = false
         coursesList.reloadData()
     }
