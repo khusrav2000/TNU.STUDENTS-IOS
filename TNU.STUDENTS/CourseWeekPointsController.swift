@@ -22,13 +22,36 @@ class CourseWeekPointsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         course = StudentData.selectedCourse
-        navigationController?.navigationBar.topItem?.title = course?.SubjectName?.RU
+        let lang: String? = UserDefaults.standard.string(forKey: "AppLanguage")
+        /*if lang == "ru"{
+            navigationController?.navigationBar.topItem?.title = course?.SubjectName?.RU
+        } else {
+            navigationController?.navigationBar.topItem?.title = course?.SubjectName?.TJ
+        }*/
         navigationController?.navigationBar.barTintColor = Colors.weekPointsNavigationBar
         navigationController?.navigationBar.topItem?.rightBarButtonItem?.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
+    
         tableView.backgroundColor = Colors.weekPointsBackground
         
+        /*let label: UILabel = UILabel()
+        label.backgroundColor = .clear
+        label.numberOfLines = 2
+        label.font = UIFont.boldSystemFont(ofSize: 15.0)
+        label.textAlignment = .center
+        label.textColor = .white
+        if lang == "ru"{
+            label.text = course?.SubjectName?.RU
+        } else {
+            label.text = course?.SubjectName?.TJ
+        }
+        
+        navigationController?.navigationBar.topItem?.titleView = label
+        
+        let height: CGFloat = 50
+        let bounds = self.navigationController!.navigationBar.bounds
+        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)*/
         
         
     }
@@ -52,7 +75,11 @@ class CourseWeekPointsController: UITableViewController {
     }
        
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50.0
+        if section == 0 {
+            return 110
+        } else {
+            return 50.0
+        }
     }
        
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -65,12 +92,37 @@ class CourseWeekPointsController: UITableViewController {
            
         name.textColor = Colors.specialGrey
         point.textColor = .lightGray
+        
+        let lineView = UIView(frame: CGRect(x: 0, y: 49, width: width, height: 1))
+        lineView.backgroundColor = .gray
            
         let lang = UserDefaults.standard.string(forKey: "AppLanguage")
         
         if section == 0 {
+            
+            headerView.frame = CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 110.0)
+            
+            let lang: String? = UserDefaults.standard.string(forKey: "AppLanguage")
+            let label: UILabel = UILabel(frame: CGRect(x: 10, y: 10, width: tableView.bounds.width - 20, height: 50))
+            
+            label.textAlignment = .center
+            label.font = UIFont.boldSystemFont(ofSize: 18.0)
+            label.numberOfLines = 2
+            label.textColor = .white
+             if lang == "ru"{
+                label.text = course?.SubjectName?.RU
+            } else {
+                label.text = course?.SubjectName?.TJ
+            }
+            headerView.addSubview(label)
             name.text = "РЕЙТИНГ 1"
             point.text = String(course?.FirstRatingPoint ?? 0.0)
+            
+            name.frame = CGRect(x: 10, y: 70, width: 200, height: 30)
+            point.frame = CGRect(x: width - 100, y: 70, width: 90, height: 30)
+            
+            lineView.frame = CGRect(x: 0, y: 109, width: width, height: 1)
+            
         } else if section == 1 {
             name.text = "РЕЙТИНГ 2"
             point.text = String(course?.SecondRatingPoint ?? 0.0)
@@ -92,8 +144,7 @@ class CourseWeekPointsController: UITableViewController {
         headerView.addSubview(name)
         headerView.addSubview(point)
         
-        let lineView = UIView(frame: CGRect(x: 0, y: 49, width: width, height: 1))
-        lineView.backgroundColor = .gray
+        
         headerView.backgroundColor = Colors.weekPointsBackground
         headerView.addSubview(lineView)
         

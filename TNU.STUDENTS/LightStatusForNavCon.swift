@@ -14,4 +14,9 @@ class LightStatusForNavCon: UINavigationController {
         return .lightContent
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
+    
 }

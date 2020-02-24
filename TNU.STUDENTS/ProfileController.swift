@@ -55,6 +55,8 @@ class ProfileController: UIViewController {
         
         let code: String = StudentData.studentInfo?.CodeSpecialty ?? ""
         specialty.text = "\(name) (\(code))"
+        specialty.sizeToFit()
+        //specialty.preferredMaxLayoutWidth = 70
         studyForm.text = StudentData.studentInfo?.TrainingForm
         educationalLevel.text = StudentData.studentInfo?.TrainingLevel
         
