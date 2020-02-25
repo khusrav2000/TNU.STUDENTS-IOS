@@ -8,11 +8,12 @@
 
 import Foundation
 import UIKit
+import Firebase
 
-class CourseWeekPointsController: UITableViewController {
+class CourseWeekPointsController: UITableViewController, GADInterstitialDelegate {
     
     var position: Int? = nil
-    
+
     var course: Course? = nil
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -22,43 +23,57 @@ class CourseWeekPointsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         course = StudentData.selectedCourse
-        let lang: String? = UserDefaults.standard.string(forKey: "AppLanguage")
+        
         /*if lang == "ru"{
             navigationController?.navigationBar.topItem?.title = course?.SubjectName?.RU
         } else {
             navigationController?.navigationBar.topItem?.title = course?.SubjectName?.TJ
         }*/
+        
         navigationController?.navigationBar.barTintColor = Colors.weekPointsNavigationBar
         navigationController?.navigationBar.topItem?.rightBarButtonItem?.tintColor = .white
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-    
         tableView.backgroundColor = Colors.weekPointsBackground
         
-        /*let label: UILabel = UILabel()
-        label.backgroundColor = .clear
-        label.numberOfLines = 2
-        label.font = UIFont.boldSystemFont(ofSize: 15.0)
-        label.textAlignment = .center
-        label.textColor = .white
-        if lang == "ru"{
-            label.text = course?.SubjectName?.RU
+        
+        //interstitial.delegate = self
+        GAd.interstitial?.delegate = self
+        if GAd.interstitial!.isReady {
+            GAd.interstitial!.present(fromRootViewController: self)
+            
         } else {
-            label.text = course?.SubjectName?.TJ
+            
+            print ("Not ready!")
         }
-        
-        navigationController?.navigationBar.topItem?.titleView = label
-        
-        let height: CGFloat = 50
-        let bounds = self.navigationController!.navigationBar.bounds
-        self.navigationController?.navigationBar.frame = CGRect(x: 0, y: 0, width: bounds.width, height: bounds.height + height)*/
         
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       
+        
+        
+    }
+    
+    func interstitialDidDismissScreen(_ ad: GADInterstitial) {
+        print("ITS WORK!")
+        GAd.interstitial!.load(GADRequest())
+    }
+    
+    /*func createAndLoadInterstitial() -> GADInterstitial {
+        //let interstitial: GADInterstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712") //TEST
+        //let interstitial: GADInterstitial = GADInterstitial(adUnitID: "ca-app-pub-5583392303902725/6812928315")
+        //let request = GADRequest()
+        //GAd.interstitial!.
+        //return GAd.interstitial!
+    }*/
+    
     
     @IBAction func cancel(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         print(4)
         return 4
@@ -139,7 +154,7 @@ class CourseWeekPointsController: UITableViewController {
             } else {
                 name.text = "ХОЛИ / БАҲОИ НИҲОИ"
             }
-            point.text = String(course?.TotalPoint ?? 0.0)
+            point.text = "\(String(course?.TotalPoint ?? 0.0)) / \(course?.Mark ?? "")"
         }
         headerView.addSubview(name)
         headerView.addSubview(point)

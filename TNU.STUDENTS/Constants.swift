@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Firebase
 
 struct StudentData {
     
@@ -21,4 +22,8 @@ struct IncLoadData {
     static var inCorrectLogOrPass = false
     static var serverNotResponse = false
     static var errorOnLoadData = false
+}
+
+struct GAd {
+    static var interstitial: GADInterstitial? = nil
 }

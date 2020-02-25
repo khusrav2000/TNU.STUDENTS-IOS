@@ -31,12 +31,16 @@
 		FA9BBECE23FBEE790078B1F6 /* CourseWeekPointsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BBECD23FBEE790078B1F6 /* CourseWeekPointsController.swift */; };
 		FA9BBED023FC03580078B1F6 /* LightStatusForNavCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BBECF23FC03580078B1F6 /* LightStatusForNavCon.swift */; };
 		FA9BBED223FC15130078B1F6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9BBED123FC15130078B1F6 /* Reachability.swift */; };
+		FA9BBED42403E1320078B1F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA9BBED32403E1320078B1F6 /* GoogleService-Info.plist */; };
 		FAE5E23023F53B62007DA1CD /* WeekPointCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5E22F23F53B62007DA1CD /* WeekPointCell.swift */; };
 		FAE5E23223F5A6A5007DA1CD /* SelectSemesterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5E23123F5A6A5007DA1CD /* SelectSemesterController.swift */; };
 		FAE5E23823FAA71C007DA1CD /* SelectLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAE5E23723FAA71C007DA1CD /* SelectLanguageController.swift */; };
+		FC73C277469AB0B13FA07905 /* Pods_TNU_STUDENTS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA49DB7A30573341C6E62AAB /* Pods_TNU_STUDENTS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		801B349D9D1EA97CCCB79887 /* Pods-TNU.STUDENTS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TNU.STUDENTS.debug.xcconfig"; path = "Target Support Files/Pods-TNU.STUDENTS/Pods-TNU.STUDENTS.debug.xcconfig"; sourceTree = "<group>"; };
+		BB5C05B85EF51668EAD78685 /* Pods-TNU.STUDENTS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TNU.STUDENTS.release.xcconfig"; path = "Target Support Files/Pods-TNU.STUDENTS/Pods-TNU.STUDENTS.release.xcconfig"; sourceTree = "<group>"; };
 		FA12AA3F23E2CBF2000E2639 /* models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = models.swift; sourceTree = "<group>"; };
 		FA12AA4123E46E1A000E2639 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FA12AA4723E97812000E2639 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -59,6 +63,7 @@
 		FA41D92C23DDB6E700BBDCCA /* allura_regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = allura_regular.otf; sourceTree = "<group>"; };
 		FA41D92D23DDB6E700BBDCCA /* roboto_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto_regular.ttf; sourceTree = "<group>"; };
 		FA41D92E23DDB6E700BBDCCA /* a_alterna_sw.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = a_alterna_sw.ttf; sourceTree = "<group>"; };
+		FA49DB7A30573341C6E62AAB /* Pods_TNU_STUDENTS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TNU_STUDENTS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6C025923FABA6300057AED /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA9BBEC723FABBE70078B1F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA9BBEC923FABD660078B1F6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -68,6 +73,7 @@
 		FA9BBECD23FBEE790078B1F6 /* CourseWeekPointsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseWeekPointsController.swift; sourceTree = "<group>"; };
 		FA9BBECF23FC03580078B1F6 /* LightStatusForNavCon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightStatusForNavCon.swift; sourceTree = "<group>"; };
 		FA9BBED123FC15130078B1F6 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		FA9BBED32403E1320078B1F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAE5E22F23F53B62007DA1CD /* WeekPointCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekPointCell.swift; sourceTree = "<group>"; };
 		FAE5E23123F5A6A5007DA1CD /* SelectSemesterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSemesterController.swift; sourceTree = "<group>"; };
 		FAE5E23723FAA71C007DA1CD /* SelectLanguageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLanguageController.swift; sourceTree = "<group>"; };
@@ -79,17 +85,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA12AA3E23E2B851000E2639 /* Alamofire in Frameworks */,
+				FC73C277469AB0B13FA07905 /* Pods_TNU_STUDENTS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4806B10CD9A25D4541C1B687 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				801B349D9D1EA97CCCB79887 /* Pods-TNU.STUDENTS.debug.xcconfig */,
+				BB5C05B85EF51668EAD78685 /* Pods-TNU.STUDENTS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D65975B687C3FB80CC707662 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA49DB7A30573341C6E62AAB /* Pods_TNU_STUDENTS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA41D90023DD923C00BBDCCA = {
 			isa = PBXGroup;
 			children = (
 				FA41D90B23DD923C00BBDCCA /* TNU.STUDENTS */,
 				FA41D90A23DD923C00BBDCCA /* Products */,
+				4806B10CD9A25D4541C1B687 /* Pods */,
+				D65975B687C3FB80CC707662 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +136,7 @@
 				FA6C025823FABA6300057AED /* Main.storyboard */,
 				FA41D91823DD923D00BBDCCA /* Assets.xcassets */,
 				FA41D91D23DD923D00BBDCCA /* Info.plist */,
+				FA9BBED32403E1320078B1F6 /* GoogleService-Info.plist */,
 				FA41D91523DD923C00BBDCCA /* TNU_STUDENTS.xcdatamodeld */,
 				FA41D92523DD938600BBDCCA /* LoginController.swift */,
 				FA41D92723DDA6DE00BBDCCA /* Colors.swift */,
@@ -152,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA41D92023DD923D00BBDCCA /* Build configuration list for PBXNativeTarget "TNU.STUDENTS" */;
 			buildPhases = (
+				4D6BDE91AE2BB24A619F7B85 /* [CP] Check Pods Manifest.lock */,
 				FA41D90523DD923C00BBDCCA /* Sources */,
 				FA41D90623DD923C00BBDCCA /* Frameworks */,
 				FA41D90723DD923C00BBDCCA /* Resources */,
+				C3A3B6D321D127F17DA3F099 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -216,10 +245,53 @@
 				FA41D91923DD923D00BBDCCA /* Assets.xcassets in Resources */,
 				FA9BBEC823FABBE70078B1F6 /* LaunchScreen.storyboard in Resources */,
 				FA6C025A23FABA6300057AED /* Main.storyboard in Resources */,
+				FA9BBED42403E1320078B1F6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D6BDE91AE2BB24A619F7B85 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TNU.STUDENTS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C3A3B6D321D127F17DA3F099 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TNU.STUDENTS/Pods-TNU.STUDENTS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TNU.STUDENTS/Pods-TNU.STUDENTS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TNU.STUDENTS/Pods-TNU.STUDENTS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA41D90523DD923C00BBDCCA /* Sources */ = {
@@ -394,6 +466,7 @@
 		};
 		FA41D92123DD923D00BBDCCA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 801B349D9D1EA97CCCB79887 /* Pods-TNU.STUDENTS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -413,6 +486,7 @@
 		};
 		FA41D92223DD923D00BBDCCA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB5C05B85EF51668EAD78685 /* Pods-TNU.STUDENTS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

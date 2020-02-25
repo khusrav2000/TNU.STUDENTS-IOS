@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 
 extension UIViewController {
@@ -284,6 +285,10 @@ class LoginController: UIViewController {
         */
         
         //let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        GAd.interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712") //TEST
+        //GAd.interstitial = GADInterstitial(adUnitID: "ca-app-pub-5583392303902725/6812928315")
+        let request = GADRequest()
+        GAd.interstitial!.load(request)
         
         progressIndic.isHidden = true
         progressIndicInsideLog.isHidden = true
