@@ -37,28 +37,41 @@ class CourseWeekPointsController: UITableViewController, GADInterstitialDelegate
         tableView.backgroundColor = Colors.weekPointsBackground
         
         
-        //interstitial.delegate = self
-        GAd.interstitial?.delegate = self
+        GAd.interstitial!.delegate = self
         if GAd.interstitial!.isReady {
             GAd.interstitial!.present(fromRootViewController: self)
-            
         } else {
-            
-            print ("Not ready!")
+            GAd.interstitial = createAndLoadInterstitial()
         }
-        
-        
+    
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        //let interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712") //TEST
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-5583392303902725/6812928315")
+        interstitial.delegate = self
+        print("qwe1")
+        let request = GADRequest()
+        interstitial.load(request)
+        return interstitial
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       
-        
         
     }
     
     func interstitialDidDismissScreen(_ ad: GADInterstitial) {
         print("ITS WORK!")
-        GAd.interstitial!.load(GADRequest())
+        GAd.interstitial = createAndLoadInterstitial()
+    }
+    
+    func interstitial(_ ad: GADInterstitial, didFailToReceiveAdWithError error: GADRequestError) {
+        print("error")
+    }
+    
+    func interstitialDidReceiveAd(_ ad: GADInterstitial) {
+        print("REcc!")
+        ad.present(fromRootViewController: self)
     }
     
     /*func createAndLoadInterstitial() -> GADInterstitial {

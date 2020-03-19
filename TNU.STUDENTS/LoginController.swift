@@ -285,10 +285,8 @@ class LoginController: UIViewController {
         */
         
         //let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        GAd.interstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712") //TEST
-        //GAd.interstitial = GADInterstitial(adUnitID: "ca-app-pub-5583392303902725/6812928315")
-        let request = GADRequest()
-        GAd.interstitial!.load(request)
+        
+        GAd.interstitial = createAndLoadInterstitial()
         
         progressIndic.isHidden = true
         progressIndicInsideLog.isHidden = true
@@ -299,6 +297,17 @@ class LoginController: UIViewController {
         present(vc, animated: true, completion: nil)
     
 
+    }
+    
+    func createAndLoadInterstitial() -> GADInterstitial {
+        
+        //let interstitial: GADInterstitial = GADInterstitial(adUnitID: "ca-app-pub-3940256099942544/1033173712") //TEST
+        let interstitial = GADInterstitial(adUnitID: "ca-app-pub-5583392303902725/6812928315")
+        print("qwe1")
+        let request: GADRequest = GADRequest()
+        interstitial.load(request)
+        return interstitial
+        
     }
     
     func showRightToast(){
